@@ -6,7 +6,7 @@ end
 
 def decode_word(word)
   new_word = ''
-  for char in word.split
+  word.split.each do |char|
     new_word += decode_char(char)
   end
   new_word
@@ -14,11 +14,10 @@ end
 
 def decode_message(message)
   new_message = ''
-  for word in message.split('  ')
-    new_message += decode_word(word)
-    new_message += ' '
+  message.split('  ').each do |word|
+    new_message += decode_word(word) + ' '
   end
   new_message
 end
 
-puts decode_message("..- .-- ..-  ..- .-- ..-")
+puts decode_message('.- .... --- .-. .-  .- .-..  ..-. .. -.  ...- ..- . .-.. ...- ---  .-  ... . .-.  -.-- --- ')
